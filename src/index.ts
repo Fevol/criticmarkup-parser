@@ -1,5 +1,5 @@
-import {parser} from "./syntax.grammar"
-import {LRLanguage, LanguageSupport, indentNodeProp, foldNodeProp, foldInside, delimitedIndent} from "@codemirror/language"
+import {parser} from "./criticmarkup.grammar"
+import {LRLanguage, LanguageSupport} from "@codemirror/language"
 //import {styleTags, tags as t} from "@codemirror/highlight"
 
 export const criticmarkupLanguage = LRLanguage.define({
