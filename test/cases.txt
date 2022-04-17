@@ -1,41 +1,44 @@
-# Booleans
+# Additions
 
-#t
-#f
-
-==>
-
-Program(Boolean, Boolean)
-
-# Identifiers
-
-one
-Two_Three
+{++ This is added text. ++}
+{++Added text with 9819 numbers++}
 
 ==>
 
-Program(Identifier, Identifier)
+Program(Addition, Addition)
 
-# Strings
+# Deletions
 
-"hello"
-"one\"\\two"
-
-==>
-
-Program(String, String)
-
-# Applications
-
-(begin
-  (when #t
-    (print (concat "hello" " " "world")))
-  (print "DONE"))
+{-- This is deleted text. --}
+{--deleted text with 9819 numbers--}
 
 ==>
 
-Program(Application(
-  Identifier,
-  Application(Identifier, Boolean, Application(
-    Identifier, Application(Identifier, String, String, String)))
-  Application(Identifier, String)))
+Program(Deletion, Deletion)
+
+# Substitutions
+
+{~~ This is ~> substituted text. ~~}
+{~~old text~>new text with 9819 numbers~~}
+
+==>
+
+Program(Substitution, Substitution)
+
+# Comments
+
+{>> my comment <<}
+{>>comment 5/ 11! w/o spaces<<}
+
+==>
+
+Program(Comment, Comment)
+
+# Highlights
+
+{==This is highlighted text==}
+{==This is highlighted text==}{>>comment<<}
+
+==>
+
+Program(Highlight, Highlight)
