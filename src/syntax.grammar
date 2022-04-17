@@ -7,11 +7,8 @@ expression {
   Deletion |
   Substitution |
   Comment |
-  Highlight |
-  String
+  Highlight
 }
-
-String { string }
 
 @tokens {
   Addition {
