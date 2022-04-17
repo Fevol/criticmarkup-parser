@@ -1,6 +1,6 @@
 # Criticmarkup lezer parser
 
-This is an attempt at creating a [criticmarkup](https://github.com/CriticMarkup/CriticMarkup-toolkit) [lezer parser](https://lezer.codemirror.net/). It currently does not handle new lines, at least it is not supported in the tests.
+This is an attempt at creating a [criticmarkup](https://github.com/CriticMarkup/CriticMarkup-toolkit) [lezer parser](https://lezer.codemirror.net/). It should handle new lines, but it is not supported in the tests.
 
 The character recognition for strings is taken from [here](https://github.com/lezer-parser/json/blob/fb6ce500ca64c3345eee09f8bd4566cf65ad0af0/src/json.grammar#L24-L26).
 
