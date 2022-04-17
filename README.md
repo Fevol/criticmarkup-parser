@@ -8,7 +8,7 @@ The character recognition for strings is taken from [here](https://github.com/le
 
 Things you'll need to do (see the [language support example](https://codemirror.net/6/examples/lang-package/) for a more detailed tutorial):
 
- * `git grep EXAMPLE` and replace all instances with your language name.
+ * [x] `git grep EXAMPLE` and replace all instances with your language name.
 
  * [x] Rewrite the grammar in `src/syntax.grammar` to cover your language. See the [Lezer system guide](https://lezer.codemirror.net/docs/guide/#writing-a-grammar) for information on this file format.
 
