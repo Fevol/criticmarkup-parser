@@ -1,6 +1,10 @@
-# CodeMirror 6 language package template
+# Criticmarkup lezer parser
 
-This is an example repository containing a minimal [CodeMirror](https://codemirror.net/6/) language support package. The idea is to clone it, rename it, and edit it to create support for a new language.
+This is an attempt at creating a criticmarkup parser. It currently does not handle new lines.
+
+The character recognition for strings is taken from [here](https://github.com/lezer-parser/json/blob/fb6ce500ca64c3345eee09f8bd4566cf65ad0af0/src/json.grammar#L24-L26).
+
+## Instructions
 
 Things you'll need to do (see the [language support example](https://codemirror.net/6/examples/lang-package/) for a more detailed tutorial):
 
