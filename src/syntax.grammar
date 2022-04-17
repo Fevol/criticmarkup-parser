@@ -1,26 +1,38 @@
 @top Program { expression* }
 
-@skip { space | LineComment }
+@skip { space }
 
 expression {
-  Identifier |
-  String |
-  Boolean |
-  Application { "(" expression* ")" }
+  Addition |
+  Deletion |
+  Substitution |
+  Comment |
+  Highlight |
+  String
 }
 
+String { string }
+
 @tokens {
-  Identifier { $[a-zA-Z_\-0-9]+ }
+  Addition {
+    "{++" string "++}"
+  }
+  Deletion {
+    "{--" string "--}"
+  }
+  Substitution {
+    "{~~" string "~>" string "~~}"
+  }
+  Comment {
+    "{>>" string "<<}"
+  }
+  Highlight {
+    "{==" string "==}" Comment?
+  }
 
-  String { '"' (!["\\] | "\\" _)* '"' }
+  string { char* }
+  space { std.whitespace+ }
 
-  Boolean { "#t" | "#f" }
-
-  LineComment { ";" ![\n]* }
-
-  space { $[ \t\n\r]+ }
-
-  "(" ")"
 }
 
 @detectDelim
