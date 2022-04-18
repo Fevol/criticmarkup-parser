@@ -1,6 +1,6 @@
 /node_modules
 package-lock.json
 /dist
-/src/*.js
+/src/parser*
 /src/*.d.ts
 .idea
