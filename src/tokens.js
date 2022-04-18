@@ -28,7 +28,7 @@ import {
 	newline as newlineToken, eof, newlineEmpty, newlineBracketed
 } from "./parser.terms.js"
 
-const newline = 10, carriageReturn = 13, space = 32, tab = 9, hash = 35
+const newline = 10, carriageReturn = 13, space = 32, tab = 9
 
 export const newlines = new ExternalTokenizer((input, stack) => {
 	if (input.next < 0) {
@@ -40,7 +40,7 @@ export const newlines = new ExternalTokenizer((input, stack) => {
 		input.advance()
 		let spaces = 0
 		while (input.next == space || input.next == tab) { input.advance(); spaces++ }
-		let empty = input.next == newline || input.next == carriageReturn || input.next == hash
+		let empty = input.next == newline || input.next == carriageReturn
 		input.acceptToken(empty ? newlineEmpty : newlineToken, -spaces)
 	}
 }, {contextual: true, fallback: true})
