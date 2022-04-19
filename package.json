@@ -5,7 +5,8 @@
   "scripts": {
     "test": "mocha test/test.js",
     "prepare": "npm run build",
-    "build": "lezer-generator src/criticmarkup.grammar -o src/parser && rollup -c"
+    "build": "lezer-generator src/criticmarkup.grammar -o src/parser && rollup -c",
+    "dev": "lezer-generator src/criticmarkup.grammar -o src/parser && rollup -c --watch"
   },
   "type": "module",
   "main": "dist/index.cjs",
