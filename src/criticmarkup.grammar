@@ -5,12 +5,12 @@
 @top Criticmarkup { expression* }
 
 @skip {
-  char | space
+  char | space | newline
 }
 
 @skip {} {
   critic {
-    (Addition | Deletion | Substitution | Comment | Highlight)
+    (Addition | Deletion | Substitution | Comment | Highlight | InnerText)
     }
 }
 
@@ -69,7 +69,8 @@ Highlight {
   //  endHighl,
     InnerText,
     char,
-    space
+    space,
+    newline
   }
 
   //Text {
