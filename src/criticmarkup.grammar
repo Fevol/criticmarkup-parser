@@ -25,8 +25,7 @@ expression {
   Deletion |
   Substitution |
   Comment |
-  Highlight //|
-  //Text
+  Highlight
 }
 
 
@@ -62,26 +61,12 @@ Highlight {
   endHighl { "==}" }
 
   @precedence {
-  //  startAdd,
-  //  endAdd,
-  //  startDel,
-  //  endDel,
-  //  startSubs,
-  //  DivideSubs,
-  //  endSubs,
-  //  startComm,
-  //  endComm,
-  //  startHighl,
-  //  endHighl,
     InnerText,
     char,
     space,
     newline
   }
 
-  //Text {
-  //  ( ![{+}]+ | ![{-}]+ | ![{~>}]+ | ![{=}]+ | ![{><}]+ )
-  //}
   InnerText { char+ }
   space { std.whitespace+ }
   char { $[\u{20}\u{21}\u{23}-\u{5b}\u{5d}-\u{10ffff}] | "\\" esc }
@@ -93,5 +78,4 @@ Highlight {
 
 @detectDelim
 
-//@external tokens newlines from "./tokens" { newline, newlineBracketed, newlineEmpty, eof }
 
