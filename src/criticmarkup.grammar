@@ -25,19 +25,19 @@ expression {
 
 
 Addition {
-  startAdd string endAdd
+  startAdd InnerText endAdd
 }
 Deletion {
-  startDel string endDel
+  startDel InnerText endDel
 }
 Substitution {
-  startSubs string divideSubs string endSubs
+  startSubs InnerText divideSubs InnerText endSubs
 }
 Comment {
-  startComm string endComm
+  startComm InnerText endComm
 }
 Highlight {
-  startHighl string endHighl !highl Comment?
+  startHighl InnerText endHighl !highl Comment?
 }
 
 
@@ -55,7 +55,7 @@ Highlight {
   startHighl { "{==" }
   endHighl { "==}" }
 
-  string { (char)+ }
+  InnerText { (char)+ }
   //space { std.whitespace+ }
   char { $[\u{20}\u{21}\u{23}-\u{5b}\u{5d}-\u{10ffff}] | "\\" esc }
   esc  { $["\\\/bfnrt] | "u" hex hex hex hex }
