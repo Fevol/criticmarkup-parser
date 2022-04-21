@@ -1,10 +1,18 @@
-//@precedence {
-//  highl @left
-//}
+@precedence {
+  highl @left
+}
 
 @top Program { expression* }
 
-@skip { space }
+//@skip {
+//  space
+//}
+
+//@skip {} {
+//  critic {
+//    (Addition | Deletion | Substitution | Comment | Highlight)
+//  }
+//}
 
 expression {
   Addition |
@@ -16,9 +24,6 @@ expression {
 
 
 
-
-
-@tokens {
   Addition {
     "{++" string "++}"
   }
@@ -32,10 +37,13 @@ expression {
     "{>>" string "<<}"
   }
   Highlight {
-    "{==" string "==}" Comment?
+    "{==" string "==}" !highl Comment?
   }
 
-  string { char+ }
+
+@tokens {
+
+  string { (char)+ }
   space { std.whitespace+ }
   char { $[\u{20}\u{21}\u{23}-\u{5b}\u{5d}-\u{10ffff}] | "\\" esc }
   esc  { $["\\\/bfnrt] | "u" hex hex hex hex }
