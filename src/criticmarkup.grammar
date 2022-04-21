@@ -1,8 +1,9 @@
 @precedence {
-  highl @left
+  highl @left,
+  HighlightWComment
 }
 
-@top Program { expression* }
+@top Criticmarkup { expression* }
 
 //@skip {
 //  space
@@ -19,26 +20,30 @@ expression {
   Deletion |
   Substitution |
   Comment |
-  Highlight
+  Highlight |
+  HighlightWComment
 }
 
 
 
-  Addition {
-    "{++" string "++}"
-  }
-  Deletion {
-    "{--" string "--}"
-  }
-  Substitution {
-    "{~~" string "~>" string "~~}"
-  }
-  Comment {
-    "{>>" string "<<}"
-  }
-  Highlight {
-    "{==" string "==}" !highl Comment?
-  }
+Addition {
+  "{++" string "++}"
+}
+Deletion {
+  "{--" string "--}"
+}
+Substitution {
+  "{~~" string "~>" string "~~}"
+}
+Comment {
+  "{>>" string "<<}"
+}
+Highlight {
+  "{==" string "==}"
+}
+HighlightWComment {
+  "{==" string "==}" !highl Comment
+}
 
 
 @tokens {
