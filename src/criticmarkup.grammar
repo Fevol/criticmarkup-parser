@@ -4,24 +4,24 @@
 
 @top Criticmarkup { expression* }
 
-//@skip {
-//  space
-//}
+@skip {
+  char
+}
 
-//@skip {} {
-//  critic {
-//    (Addition | Deletion | Substitution | Comment | Highlight)
-//  }
-//}
+@skip {} {
+  critic {
+    (Addition | Deletion | Substitution | Comment | Highlight)
+    }
+}
 
 expression {
   Addition |
   Deletion |
   Substitution |
   Comment |
-  Highlight
+  Highlight //|
+  //Text
 }
-
 
 
 Addition {
@@ -31,7 +31,7 @@ Deletion {
   startDel InnerText endDel
 }
 Substitution {
-  startSubs InnerText divideSubs InnerText endSubs
+  startSubs InnerText DivideSubs InnerText endSubs
 }
 Comment {
   startComm InnerText endComm
@@ -48,20 +48,39 @@ Highlight {
   startDel { "{--" }
   endDel { "--}" }
   startSubs { "{~~" }
-  divideSubs { "~>" }
+  DivideSubs { "~>" }
   endSubs { "~~}" }
   startComm { "{>>" }
   endComm { "<<}" }
   startHighl { "{==" }
   endHighl { "==}" }
 
-  InnerText { (char)+ }
+  @precedence {
+  //  startAdd,
+  //  endAdd,
+  //  startDel,
+  //  endDel,
+  //  startSubs,
+  //  DivideSubs,
+  //  endSubs,
+  //  startComm,
+  //  endComm,
+  //  startHighl,
+  //  endHighl,
+    InnerText,
+    char
+  }
+
+  //Text {
+  //  ( ![{+}]+ | ![{-}]+ | ![{~>}]+ | ![{=}]+ | ![{><}]+ )
+  //}
+  InnerText { char+ }
   //space { std.whitespace+ }
   char { $[\u{20}\u{21}\u{23}-\u{5b}\u{5d}-\u{10ffff}] | "\\" esc }
   esc  { $["\\\/bfnrt] | "u" hex hex hex hex }
   hex  { $[0-9a-fA-F] }
 
-  //newline { $[\r\n] }
+  newline { $[\r\n] }
 }
 
 @detectDelim
