@@ -1,5 +1,11 @@
 @precedence {
-  highl @left
+  highl @left,
+  Highlight,
+  Addition,
+  Deletion,
+  Comment,
+  Substitution,
+  InnerText
 }
 
 @top Criticmarkup { expression* }
@@ -10,7 +16,7 @@
 
 @skip {} {
   critic {
-    (Addition | Deletion | Substitution | Comment | Highlight | InnerText)
+    (Addition | Deletion | Substitution | Comment | Highlight )
     }
 }
 
