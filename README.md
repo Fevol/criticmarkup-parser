@@ -11,6 +11,8 @@ It has `Addition`, `Deletion`, `Comment`, `Highlight` and `Substitution` nodes. 
 - Remove the 3 characters at the beginning and end
 - If a Highlight and a Comment are directy next to each other (the respective end and start position are the same number), then it is a highlight with a comment. This only happens when there are one or more new lines in the highlight. Otherwise it will be one highlight which *may* have a comment associated with it.
 
+Note that the tests don't work. For testing I made a very basic Obsidian plugin.
+
 ## Instructions
 
 Things you'll need to do (see the [language support example](https://codemirror.net/6/examples/lang-package/) for a more detailed tutorial):
