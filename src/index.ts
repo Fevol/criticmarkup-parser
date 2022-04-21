@@ -3,9 +3,9 @@ import {LRLanguage, LanguageSupport} from "@codemirror/language"
 //import {styleTags, tags as t} from "@codemirror/highlight"
 
 export const criticmarkupLanguage = LRLanguage.define({
-  parser: parser.configure({
+  parser/*: parser.configure({
     props: [
-        /*
+        /!*
       indentNodeProp.add({
         Application: delimitedIndent({closing: ")", align: false})
       }),
@@ -19,12 +19,13 @@ export const criticmarkupLanguage = LRLanguage.define({
         LineComment: t.lineComment,
         "( )": t.paren
       })
-        */
+        *!/
     ]
   }),
   languageData: {
     // commentTokens: {line: ";"}
   }
+*/
 })
 
 export function criticmarkup() {
