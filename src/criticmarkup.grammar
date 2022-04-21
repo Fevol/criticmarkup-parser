@@ -25,23 +25,35 @@ expression {
 
 
 Addition {
-  "{++" string "++}"
+  startAdd string endAdd
 }
 Deletion {
-  "{--" string "--}"
+  startDel string endDel
 }
 Substitution {
-  "{~~" string "~>" string "~~}"
+  startSubs string divideSubs string endSubs
 }
 Comment {
-  "{>>" string "<<}"
+  startComm string endComm
 }
 Highlight {
-  "{==" string "==}" !highl Comment?
+  startHighl string endHighl !highl Comment?
 }
 
 
 @tokens {
+
+  startAdd { "{++" }
+  endAdd { "++}" }
+  startDel { "{--" }
+  endDel { "--}" }
+  startSubs { "{~~" }
+  divideSubs { "~>" }
+  endSubs { "~~}" }
+  startComm { "{>>" }
+  endComm { "<<}" }
+  startHighl { "{==" }
+  endHighl { "==}" }
 
   string { (char)+ }
   space { std.whitespace+ }
