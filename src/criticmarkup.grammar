@@ -1,6 +1,5 @@
 @precedence {
-  highl @left,
-  HighlightWComment
+  highl @left
 }
 
 @top Criticmarkup { expression* }
@@ -20,8 +19,7 @@ expression {
   Deletion |
   Substitution |
   Comment |
-  Highlight |
-  HighlightWComment
+  Highlight
 }
 
 
@@ -39,10 +37,7 @@ Comment {
   "{>>" string "<<}"
 }
 Highlight {
-  "{==" string "==}"
-}
-HighlightWComment {
-  "{==" string "==}" !highl Comment
+  "{==" string "==}" !highl Comment?
 }
 
 
