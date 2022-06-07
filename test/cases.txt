@@ -1,11 +1,13 @@
 # Additions
 
-{++ This is added text. ++}
+{++ This is added
+text. ++}
 {++Added text with 9819 numbers++}
+{++++}
 
 ==>
 
-Program(Addition, Addition)
+Criticmarkup(Addition, Addition, Addition)
 
 # Deletions
 
@@ -14,7 +16,7 @@ Program(Addition, Addition)
 
 ==>
 
-Program(Deletion, Deletion)
+Criticmarkup(Deletion, Deletion)
 
 # Substitutions
 
@@ -23,7 +25,7 @@ Program(Deletion, Deletion)
 
 ==>
 
-Program(Substitution, Substitution)
+Criticmarkup(Substitution, Substitution)
 
 # Comments
 
@@ -32,7 +34,7 @@ Program(Substitution, Substitution)
 
 ==>
 
-Program(Comment, Comment)
+Criticmarkup(Comment, Comment)
 
 # Highlights
 
@@ -41,4 +43,4 @@ Program(Comment, Comment)
 
 ==>
 
-Program(Highlight, Highlight)
+Criticmarkup(Highlight, Highlight, Comment)
