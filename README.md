@@ -9,7 +9,8 @@ The characters for strings are taken from [here](https://github.com/lezer-parser
 It has `Addition`, `Deletion`, `Comment`, `Highlight` and `Substitution` nodes. Those are the full nodes. That means for working with the text, you need to parse the individual nodes.
 
 - Remove the 3 characters at the beginning and end
-- If a Highlight and a Comment are directy next to each other (the respective end and start position are the same number), then it is a highlight with a comment. This only happens when there are one or more new lines in the highlight. Otherwise it will be one highlight which *may* have a comment associated with it.
+- Substitutions have a `DivideSubs` in the middle which is part of the tree.
+- A `Highlight` is only a highlight. If the intention is to have a comment with it, you need to check whether a comment follows immediately.
 
 Note that the tests don't work. For testing I made a very basic Obsidian plugin.
 
