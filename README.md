@@ -12,7 +12,7 @@ It has `Addition`, `Deletion`, `Comment`, `Highlight` and `Substitution` nodes. 
 - Substitutions have a `DivideSubs` in the middle which is part of the tree.
 - A `Highlight` is only a highlight. If the intention is to have a comment with it, you need to check whether a comment follows immediately.
 
-Note that the tests don't work. For testing I made a very basic Obsidian plugin.
+The tests are passing. 
 
 ## Instructions
 
