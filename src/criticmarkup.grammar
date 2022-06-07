@@ -1,5 +1,4 @@
 @precedence {
-  highl @left,
   Highlight,
   Addition,
   Deletion,
@@ -42,7 +41,7 @@ Comment {
   startComm innerText endComm
 }
 Highlight {
-  startHighl innerText endHighl !highl Comment?
+  startHighl innerText endHighl
 }
 
 
