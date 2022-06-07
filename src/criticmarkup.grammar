@@ -3,20 +3,13 @@
   Addition,
   Deletion,
   Comment,
-  Substitution,
-  innerText
+  Substitution
 }
 
 @top Criticmarkup { expression* }
 
 @skip {
   char | space | newline
-}
-
-@skip {} {
-  critic {
-    (Addition | Deletion | Substitution | Comment | Highlight )
-    }
 }
 
 expression {
@@ -29,19 +22,19 @@ expression {
 
 
 Addition {
-  startAdd innerText endAdd
+  startAdd endAdd
 }
 Deletion {
-  startDel innerText endDel
+  startDel endDel
 }
 Substitution {
-  startSubs innerText DivideSubs innerText endSubs
+  startSubs DivideSubs endSubs
 }
 Comment {
-  startComm innerText endComm
+  startComm endComm
 }
 Highlight {
-  startHighl innerText endHighl
+  startHighl endHighl
 }
 
 
@@ -60,13 +53,11 @@ Highlight {
   endHighl { "==}" }
 
   @precedence {
-    innerText,
-    char,
     space,
+    char,
     newline
   }
 
-  innerText { char+ }
   space { std.whitespace+ }
   char { $[\u{20}\u{21}\u{23}-\u{5b}\u{5d}-\u{10ffff}] | "\\" esc }
   esc  { $["\\\/bfnrt] | "u" hex hex hex hex }
