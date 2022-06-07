@@ -1,6 +1,6 @@
 {
   "name": "lang-criticmarkup",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Criticmarkup language support for CodeMirror",
   "scripts": {
     "test": "mocha test/test.js",
