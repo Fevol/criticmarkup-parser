@@ -1,3 +1,10 @@
+# No Markup
+
+This is just regular text with **markdown**
+==> CriticMarkup()
+
+
+
 # Empty
 
 {++++}

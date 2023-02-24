@@ -1,35 +1,46 @@
-# Criticmarkup lezer grammar
+# CriticMarkup Lezer grammar
 
-This is a [criticmarkup](https://github.com/CriticMarkup/CriticMarkup-toolkit) [lezer grammar](https://lezer.codemirror.net/).
+This is a [CriticMarkup](https://github.com/CriticMarkup/CriticMarkup-toolkit) grammar for CodeMirror's [Lezer](https://lezer.codemirror.net/) parser system.
+Originally developed by kometenstaub, this fork aims to make some improvements to the grammar in terms of extensibility, testing, and resolving
+some nesting issues of the original grammar.
 
-The characters for strings are taken from [here](https://github.com/lezer-parser/json/blob/fb6ce500ca64c3345eee09f8bd4566cf65ad0af0/src/json.grammar#L24-L26).
+This repository is not affiliated with the CriticMarkup maintainers, and is intended to be used with CodeMirror 6.
+
+The grammar and parser are developed alongside with the [CriticMarkup plugin](https://github.com/Fevol/obsidian-criticmarkup) for [Obsidian](https://obsidian.md/).
+
+
 
 ## Usage
 
-It has `Addition`, `Deletion`, `Comment`, `Highlight` and `Substitution` nodes. Those are the full nodes. That means for working with the text, you need to parse the individual nodes.
+There are five types of nodes that will be outputted by the grammar's parser, which are defined as follows:
+- Addition: `{++ ... ++}`
+- Deletion: `{-- ... --}`
+- Substitution: `{~~ ... ~> ... ~~}`
+- Comment: `{>> ... <<}`
+- Highlight: `{== ... ==}`
 
-- Remove the 3 characters at the beginning and end
-- Substitutions have a `DivideSubs` in the middle which is part of the tree.
-- A `Highlight` is only a highlight. If the intention is to have a comment with it, you need to check whether a comment follows immediately.
+To get the text contexts for each of these nodes, you can simply splice the first and last three characters off of the node's text.
 
-The tests are passing. 
+For Substitution, in order to get the text contexts for the two sides of the substitution, you simply have to peek
+at the next node in the tree, which is a `MSub` node, and get its from/to text contexts. When walking through the tree,
+you can simply skip over the `MSub` node, since it does not provide any other useful information.
 
-## Instructions
 
-Things you'll need to do (see the [language support example](https://codemirror.net/6/examples/lang-package/) for a more detailed tutorial):
+## Tests
+There are four different test files that attempt to, each testing a different aspect of the grammar:
+- `basic_markdown.txt`: Tests the interaction of the Parser with Markdown text and the CriticMarkup grammar.
+- `basic_nodes.txt`: Tests well-formedness of each node type.
+- `malformed_nodes.txt`: Tests cases where nodes should not get parsed.
+- `edge_cases.txt`: Tests edge cases of the grammar.
 
- * [x] `git grep EXAMPLE` and replace all instances with your language name.
+### Issues
+Currently, there is one issue with the grammar that is [not easily resolvable](https://discuss.codemirror.net/t/proper-local-token-group-usage-and-incorrect-matching/5778/11),
+without hampering performance or the simplicity of the grammar.
 
- * [x] Rewrite the grammar in `src/syntax.grammar` to cover your language. See the [Lezer system guide](https://lezer.codemirror.net/docs/guide/#writing-a-grammar) for information on this file format.
+The error is that unclosed opening brackets `{++` will match all subsequent tokens, and thus later
+nodes might not get parsed correctly.
 
- * Adjust the metadata in `src/index.ts` to work with your new grammar. *(I only removed properties, do we need to add custom properties?)*
 
- * [x] Adjust the grammar tests in `test/cases.txt`.
-
- * [x] Build (`npm run prepare`) and test (`npm test`). *(needs to be done each time the grammar is changed)*
-
- * [x] Rewrite this readme file.
-
- * [x] Optionally add a license.
-
- * Publish. If you want to use a `@codemirror/lang-...` package name, open an [issue](https://github.com/codemirror/codemirror.next/issues) to ask for npm publish rights for that name.
+## Contributors
+@kometenstaub - Developing the original grammar and plugin, and providing much needed guidance and support.<br>
+@marijnh - Answering my incessant questions about Lezer and how grammars should be constructed.
