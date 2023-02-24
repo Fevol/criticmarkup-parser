@@ -1,0 +1,48 @@
+# Empty
+
+{++++}
+==> CriticMarkup(Addition)
+
+
+
+# Regular
+
+{++addition++}
+==> CriticMarkup(Addition)
+
+
+
+# Multiline
+
+{++
+addition
+++}
+==> CriticMarkup(Addition)
+
+
+
+# Markdown
+
+{++ # Introduction
+This **text** *contains* many types of Markdown:
+- First type
+- Second type
+1. Another type of types
+
+This should ~~not~~ be a problem <> despite the fact that I'm using ~> somewhat ==similar== tokens
+++}
+==> CriticMarkup(Addition)
+
+
+
+# Unicode characters
+
+{++ あいうえお
+读写汉字 学中文
+חבורות
+τελευταίου
+Да На им се
+😄 ⚖ ☦ 🇿🇦
+++}
+==> CriticMarkup(Addition)
+

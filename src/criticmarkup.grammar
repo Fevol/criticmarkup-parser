@@ -1,16 +1,5 @@
-@precedence {
-  Highlight,
-  Addition,
-  Deletion,
-  Comment,
-  Substitution
-}
-
-@top Criticmarkup { expression* }
-
-@skip {
-  char | space | newline
-}
+@detectDelim
+@top CriticMarkup { (char|expression)* }
 
 expression {
   Addition |
@@ -20,52 +9,48 @@ expression {
   Highlight
 }
 
-
-Addition {
-  startAdd endAdd
+@skip {} {
+  Addition { lAdd additionContent? rAdd }
+  Deletion { lDel deletionContent? rDel }
+  Substitution { lSub substitutionContent? MSub substitutionContent? rSub }
+  Comment { lCom commentContent? rCom }
+  Highlight { lHig highlightContent? rHig }
 }
-Deletion {
-  startDel endDel
-}
-Substitution {
-  startSubs DivideSubs endSubs
-}
-Comment {
-  startComm endComm
-}
-Highlight {
-  startHighl endHighl
-}
-
 
 @tokens {
+  lAdd { "{++" }
+  lDel { "{--" }
+  lSub { "{~~" }
+  lCom { "{>>" }
+  lHig { "{==" }
 
-  startAdd { "{++" }
-  endAdd { "++}" }
-  startDel { "{--" }
-  endDel { "--}" }
-  startSubs { "{~~" }
-  DivideSubs { "~>" }
-  endSubs { "~~}" }
-  startComm { "{>>" }
-  endComm { "<<}" }
-  startHighl { "{==" }
-  endHighl { "==}" }
-
-  @precedence {
-    space,
-    char,
-    newline
-  }
-
-  space { std.whitespace+ }
-  char { $[\u{20}\u{21}\u{23}-\u{5b}\u{5d}-\u{10ffff}] | "\\" esc }
+  char { $[\n\r\t\u{20}\u{21}\u{23}-\u{5b}\u{5d}-\u{10ffff}\\] | "\\" esc }
   esc  { $["\\\/bfnrt] | "u" hex hex hex hex }
   hex  { $[0-9a-fA-F] }
-
-  newline { $[\r\n] }
 }
 
-@detectDelim
+@local tokens {
+  rAdd { "++}" }
+  @else additionContent
+}
 
+@local tokens {
+  rDel { "--}" }
+  @else deletionContent
+}
 
+@local tokens {
+  MSub { "~>" }
+  rSub { "~~}" }
+  @else substitutionContent
+}
+
+@local tokens {
+  rCom { "<<}" }
+  @else commentContent
+}
+
+@local tokens {
+  rHig { "==}" }
+  @else highlightContent
+}

@@ -1,0 +1,33 @@
+# Space between bracket characters
+
+{ ++ Text ++}
+{+ + Text ++}
+==> CriticMarkup()
+
+
+
+# Space between Substitution arrow
+
+{~~ This is ~ > a test ~~}
+==> CriticMarkup()
+
+
+
+# Escaped brackets
+
+{\++ This is a test ++}
+==> CriticMarkup()
+
+
+
+# Unclosed opening bracket
+
+{++ Unclosed opening bracket
+==> CriticMarkup()
+
+
+
+# Unclosed closing bracket
+
+Unclosed closing bracket ++}
+==> CriticMarkup()

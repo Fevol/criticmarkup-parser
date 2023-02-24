@@ -1,0 +1,32 @@
+# Addition
+
+{++ an addition ++}
+==> CriticMarkup(Addition)
+
+
+
+# Deletion
+
+{-- a deletion --}
+==> CriticMarkup(Deletion)
+
+
+
+# Substitution
+
+{~~ a ~> substitution ~~}
+==> CriticMarkup(Substitution(MSub))
+
+
+
+# Comment
+
+{>> a comment <<}
+==> CriticMarkup(Comment)
+
+
+
+# Highlight
+
+{== a highlight ==}
+==> CriticMarkup(Highlight)

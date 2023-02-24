@@ -1,0 +1,19 @@
+# Nested markup
+
+{++ {-- This is a nested node --} ++}
+{>> {>> Doubly nested comment <<} and some additional text <<}
+==> CriticMarkup(Addition, Comment)
+
+
+
+# Mixed markup
+
+{++ This is a mixed node --}
+==> CriticMarkup()
+
+
+
+# Mixed nested node
+
+{++ {-- This is a nested mixed node ++} --}
+==> CriticMarkup(Addition)
