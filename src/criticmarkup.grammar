@@ -20,9 +20,9 @@ expression {
 @tokens {
   lAdd { "{++" }
   lDel { "{--" }
-  lSub { "{~~" }
-  lCom { "{>>" }
-  lHig { "{==" }
+  lSub { "{~~" | "{<del>" }
+  lCom { "{>>" | "{&gt;&gt;" }
+  lHig { "{==" | "{<mark>" }
 
   char { $[\n\r\t\u{20}\u{21}\u{23}-\u{5b}\u{5d}-\u{10ffff}\\] | "\\" esc }
   esc  { $["\\\/bfnrt] | "u" hex hex hex hex }
@@ -40,17 +40,17 @@ expression {
 }
 
 @local tokens {
-  MSub { "~>" }
-  rSub { "~~}" }
+  MSub { "~>" | "~&gt;"}
+  rSub { "~~}" | "</del>}" }
   @else substitutionContent
 }
 
 @local tokens {
-  rCom { "<<}" }
+  rCom { "<<}" | "&lt;&lt;}" }
   @else commentContent
 }
 
 @local tokens {
-  rHig { "==}" }
+  rHig { "==}" | "</mark>}" }
   @else highlightContent
 }
