@@ -3,3 +3,4 @@ package-lock.json
 /src/parser*
 /src/*.d.ts
 .idea
+/dist
