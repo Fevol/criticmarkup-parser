@@ -5,8 +5,8 @@
   "scripts": {
     "test": "mocha test/test.js",
     "prepare": "npm run build",
-    "build": "lezer-generator src/criticmarkup.grammar -o src/parser && rollup -c",
-    "dev": "lezer-generator src/criticmarkup.grammar -o src/parser && rollup -c --watch"
+    "build": "lezer-generator src/criticmarkup.grammar -o src/parser && rollup -c && cm-buildhelper src/criticmarkup.ts",
+    "dev": "lezer-generator src/criticmarkup.grammar --names -o src/parser && rollup -c && "
   },
   "type": "module",
   "main": "dist/index.cjs",
@@ -19,16 +19,15 @@
   "sideEffects": false,
   "dependencies": {
     "@codemirror/language": "^6.0.0",
-    "@lezer/lr": "^1.0.0",
+    "@lezer/lr": "^1.3.9",
     "@lezer/highlight": "^1.0.0"
   },
   "devDependencies": {
     "@lezer/generator": "^1.0.0",
     "mocha": "^9.0.1",
     "rollup": "^2.60.2",
-    "rollup-plugin-dts": "^4.0.1",
-    "rollup-plugin-ts": "^2.0.4",
-    "typescript": "^4.3.4"
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "@codemirror/buildhelper": "^1.0.0"
   },
   "license": "MIT"
 }
