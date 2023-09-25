@@ -1,0 +1,25 @@
+# Empty metadata section
+
+{++ @@ test ++}
+==> CriticMarkup(Addition(MDSepAdd))
+
+
+# Half-formed metadata separator
+
+{++ test @ half ++}
+==> CriticMarkup(Addition)
+
+
+# Incomplete marking
+
+{++ test @@ incompleted
+=> CriticMarkup()
+
+
+# Double metadata separator
+
+{++ test @@ double @@ regular ++}
+==> CriticMarkup(Addition(MDSepAdd))
+
+{++ test @@ {++ @@ double ++} regular ++}
+==> CriticMarkup(Addition(MDSepAdd))

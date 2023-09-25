@@ -1,5 +1,5 @@
 @detectDelim
-@top CriticMarkup { (char|expression)* }
+@top CriticMarkup { (expression|char)* }
 
 expression {
   Addition |
@@ -10,11 +10,11 @@ expression {
 }
 
 @skip {} {
-  Addition { lAdd additionContent? rAdd }
-  Deletion { lDel deletionContent? rDel }
-  Substitution { lSub substitutionContent? MSub substitutionContent? rSub }
-  Comment { lCom commentContent? rCom }
-  Highlight { lHig highlightContent? rHig }
+  Addition { lAdd (additionContent? MDSepAdd)? additionContent? rAdd }
+  Deletion { lDel (deletionContent? MDSepDel)? deletionContent? rDel }
+  Substitution { lSub (substitutionContent? MDSepSub)? substitutionContent? MSub substitutionContent? rSub }
+  Comment { lCom  (commentContent? MDSepCom)? commentContent? rCom }
+  Highlight { lHig (highlightContent? MDSepHig)? highlightContent? rHig }
 }
 
 @tokens {
@@ -30,27 +30,32 @@ expression {
 }
 
 @local tokens {
+  MDSepAdd { "@@" }
   rAdd { "++}" }
   @else additionContent
 }
 
 @local tokens {
+  MDSepDel { "@@" }
   rDel { "--}" }
   @else deletionContent
 }
 
 @local tokens {
+  MDSepSub { "@@" }
   MSub { "~>" | "~&gt;"}
   rSub { "~~}" | "</del>}" }
   @else substitutionContent
 }
 
 @local tokens {
+  MDSepCom { "@@" }
   rCom { "<<}" | "&lt;&lt;}" }
   @else commentContent
 }
 
 @local tokens {
+  MDSepHig { "@@" }
   rHig { "==}" | "</mark>}" }
   @else highlightContent
 }
