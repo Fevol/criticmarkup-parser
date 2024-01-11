@@ -13,7 +13,7 @@
 
 
 
-# Mixed nested node
+# Mixed nested range
 
 {++ {-- This is a nested mixed node ++} --}
 ==> CriticMarkup(Addition)
