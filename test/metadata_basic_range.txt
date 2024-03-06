@@ -1,0 +1,32 @@
+# Addition
+
+{++ test @@ an addition ++}
+==> CriticMarkup(Addition(MDSepAdd))
+
+
+
+# Deletion
+
+{-- test @@ a deletion --}
+==> CriticMarkup(Deletion(MDSepDel))
+
+
+
+# Substitution
+
+{~~ test @@ a ~> substitution ~~}
+==> CriticMarkup(Substitution(MDSepSub, MSub))
+
+
+
+# Comment
+
+{>> test @@ a comment <<}
+==> CriticMarkup(Comment(MDSepCom))
+
+
+
+# Highlight
+
+{== test @@ a highlight ==}
+==> CriticMarkup(Highlight(MDSepHig))
