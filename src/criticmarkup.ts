@@ -1,8 +1,8 @@
-import { parser } from './criticmarkup.grammar';
-import { LRLanguage, LanguageSupport } from '@codemirror/language';
+import { LanguageSupport, LRLanguage } from "@codemirror/language";
+import { parser } from "./criticmarkup.grammar";
 
 export const criticmarkupLanguage = LRLanguage.define({
-	name: 'criticmarkup',
+	name: "criticmarkup",
 	parser: parser.configure({}),
 });
 
