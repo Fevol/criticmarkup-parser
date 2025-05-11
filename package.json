@@ -29,5 +29,8 @@
 		"@rollup/plugin-node-resolve": "^15.2.3",
 		"@codemirror/buildhelper": "^1.0.1"
 	},
+	"overrides": {
+		"@lezer/common": "^1.2.3"
+	},
 	"license": "MIT"
 }
