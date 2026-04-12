@@ -1,10 +1,11 @@
 {
   "lockfileVersion": 1,
+  "configVersion": 0,
   "workspaces": {
     "": {
       "name": "lang-criticmarkup",
       "dependencies": {
-        "@codemirror/language": "^6.10.0",
+        "@codemirror/language": "github:fevol-forks/cm-language",
         "@lezer/highlight": "^1.2.0",
         "@lezer/lr": "^1.3.14",
       },
@@ -29,11 +30,11 @@
 
     "@codemirror/buildhelper": ["@codemirror/buildhelper@1.0.1", "", { "dependencies": { "@lezer/generator": "^1.0.0", "@marijn/buildtool": "^1.0.0", "@marijn/testtool": "^0.1.1" }, "bin": { "cm-buildhelper": "bin/cm-buildhelper.js", "cm-runtests": "bin/cm-runtests.js" } }, "sha512-RbXu1opzxeeilMzKunOFkM83rRBqvsAPax36sa3JW+jVxL88E7aK2bFi3ugbQUNogCFyxuNk2m9zeyY63kFcPQ=="],
 
-    "@codemirror/language": ["@codemirror/language@6.10.0", "", { "dependencies": { "@codemirror/state": "^6.0.0", "@codemirror/view": "^6.23.0", "@lezer/common": "^1.1.0", "@lezer/highlight": "^1.0.0", "@lezer/lr": "^1.0.0", "style-mod": "^4.0.0" } }, "sha512-2vaNn9aPGCRFKWcHPFksctzJ8yS5p7YoaT+jHpc0UGKzNuAIx4qy6R5wiqbP+heEEdyaABA582mNqSHzSoYdmg=="],
+    "@codemirror/language": ["@codemirror/language@github:fevol-forks/cm-language#69b69af", { "dependencies": { "@codemirror/state": "^6.5.0", "@codemirror/view": "^6.38.6", "@lezer/common": "^1.1.0", "@lezer/highlight": "^1.0.0", "@lezer/lr": "^1.0.0", "style-mod": "^4.0.0" } }, "fevol-forks-cm-language-69b69af", "sha512-lDzEsEgXvj5/tUL0sg+AmYuOGtWgcMfF1xZNetW78PodrrDfgLFKwL2B9tvxFwpxO/n5ytt9EeaVpBE8VmDfaQ=="],
 
-    "@codemirror/state": ["@codemirror/state@6.4.0", "", {}, "sha512-hm8XshYj5Fo30Bb922QX9hXB/bxOAVH+qaqHBzw5TKa72vOeslyGwd4X8M0c1dJ9JqxlaMceOQ8RsL9tC7gU0A=="],
+    "@codemirror/state": ["@codemirror/state@6.6.0", "", { "dependencies": { "@marijn/find-cluster-break": "^1.0.0" } }, "sha512-4nbvra5R5EtiCzr9BTHiTLc+MLXK2QGiAVYMyi8PkQd3SR+6ixar/Q/01Fa21TBIDOZXgeWV4WppsQolSreAPQ=="],
 
-    "@codemirror/view": ["@codemirror/view@6.23.0", "", { "dependencies": { "@codemirror/state": "^6.4.0", "style-mod": "^4.1.0", "w3c-keyname": "^2.2.4" } }, "sha512-/51px9N4uW8NpuWkyUX+iam5+PM6io2fm+QmRnzwqBy5v/pwGg9T0kILFtYeum8hjuvENtgsGNKluOfqIICmeQ=="],
+    "@codemirror/view": ["@codemirror/view@6.41.0", "", { "dependencies": { "@codemirror/state": "^6.6.0", "crelt": "^1.0.6", "style-mod": "^4.1.0", "w3c-keyname": "^2.2.4" } }, "sha512-6H/qadXsVuDY219Yljhohglve8xf4B8xJkVOEWfA5uiYKiTFppjqsvsfR5iPA0RbvRBoOyTZpbLIxe9+0UR8xA=="],
 
     "@jridgewell/sourcemap-codec": ["@jridgewell/sourcemap-codec@1.4.15", "", {}, "sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg=="],
 
@@ -46,6 +47,8 @@
     "@lezer/lr": ["@lezer/lr@1.3.14", "", { "dependencies": { "@lezer/common": "^1.0.0" } }, "sha512-z5mY4LStlA3yL7aHT/rqgG614cfcvklS+8oFRFBYrs4YaWLJyKKM4+nN6KopToX0o9Hj6zmH6M5kinOYuy06ug=="],
 
     "@marijn/buildtool": ["@marijn/buildtool@1.0.0", "", { "dependencies": { "@types/mocha": "^9.1.1", "acorn": "^8.10.0", "acorn-walk": "^8.2.0", "rollup": "^4.8.0", "rollup-plugin-dts": "^6.1.0", "typescript": "^5.3.3" } }, "sha512-yweS09UWiKGAIvteZcE0H/ddDPOjetI4lzO491z0Lph+hgV6RDF0sEZuZv3K51jwz+UU3rQVskjebHCgNxDE6A=="],
+
+    "@marijn/find-cluster-break": ["@marijn/find-cluster-break@1.0.2", "", {}, "sha512-l0h88YhZFyKdXIFNfSWpyjStDjGHwZ/U7iobcK1cQQD8sejsONdQtTVU+1wVN1PBw40PiiHB1vA5S7VTfQiP9g=="],
 
     "@marijn/testtool": ["@marijn/testtool@0.1.1", "", { "dependencies": { "esmoduleserve": "^0.2.0", "ist": "^1.1.7", "mocha": "^10.0.0", "selenium-webdriver": "^4.0.0-beta.3", "serve-static": "^1.14.1" } }, "sha512-mc8Tq46yGA5C4Nk0utPNy1iJmZGkezHkC9u0m8y46QMTwg/ImI76UCE3gnOa1NxV+yddrwV4JAK/9n//1JmtfA=="],
 
@@ -126,6 +129,8 @@
     "concat-map": ["concat-map@0.0.1", "", {}, "sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg=="],
 
     "core-util-is": ["core-util-is@1.0.3", "", {}, "sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ=="],
+
+    "crelt": ["crelt@1.0.6", "", {}, "sha512-VQ2MBenTq1fWZUH9DJNGti7kKv6EeAuYr3cLwxUWhIu1baTaXh4Ib5W2CqHVqib4/MqbYGJqiL3Zb8GJZr3l4g=="],
 
     "debug": ["debug@4.3.4", "", { "dependencies": { "ms": "2.1.2" } }, "sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ=="],
 
